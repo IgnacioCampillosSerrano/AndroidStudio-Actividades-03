@@ -11,6 +11,7 @@ import android.widget.Button;
 public class SecondActivity extends AppCompatActivity {
 
     private Button buttonGotoMain;
+    private Button buttonGotoThird;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,8 +19,7 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
         Log.e("ESTADOS", "1-En el metodo onCreate SECOND");
 
-        buttonGotoMain = findViewById(R.id.buttonGotoMain);
-
+        initializeInterface();
         buttonGotoMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -27,7 +27,22 @@ public class SecondActivity extends AppCompatActivity {
                 Intent intent = new Intent(SecondActivity.this, MainActivity.class);
                 startActivity(intent);
             }
+
+
         });
+
+        buttonGotoThird.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void initializeInterface() {
+        buttonGotoMain = findViewById(R.id.buttonGotoMain);
+        buttonGotoThird = findViewById(R.id.buttonGotoThird);
     }
 
 
